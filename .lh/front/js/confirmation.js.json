@@ -1,0 +1,18 @@
+{
+    "sourceFile": "front/js/confirmation.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678277090111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678277090111,
+            "name": "Commit-0",
+            "content": "let url = new URL(window.location.href)\nconst id = url.searchParams.get('orderId');\ndocument.getElementById('orderId').innerText= id\nlocalStorage.removeItem('panier')\n\n// getOrderId()\n// displayOrderId\n\n// function getOrderId(){\n//     let queryString = window.location.search\n//     let urlParams = new URLSearchParams(queryString)\n//     let orderId = urlParams.get(\"id\")\n//     //return orderId\n   \n//  //   console.log(url.searchParams.get.get(\"data.orderId\"))\n\n//     console.log(urlParams.get(\"id\"))\n// }\n// function displayOrderId(orderId){\n//     //const orderIdElement = document.getElementById(\"orderId\")\n//     //orderIdElement.textContent = orderId\n//     document.getElementById('orderId').innerText= orderId\n// }\n// function emptyCache(){\n//     const cache = window.localStorage\n//     cache.clear()\n    //localStorage.removeItem('panier')\n\n//}\n\n"
+        }
+    ]
+}
