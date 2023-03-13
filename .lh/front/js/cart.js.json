@@ -3,11 +3,71 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1678274221641,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678363146002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,9 @@\n                     if(itemToDelete !== -1){\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n-                    }\n+                    }else\n                 })\n //***********      deleteProduct(item)   *******************  \n \n         const contentDelete = document.createElement(\"div\")\n"
+                },
+                {
+                    "date": 1678363152431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,11 @@\n                     if(itemToDelete !== -1){\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n-                    }else\n+                    }else{\n+                        \n+                    }\n                 })\n //***********      deleteProduct(item)   *******************  \n \n         const contentDelete = document.createElement(\"div\")\n"
+                },
+                {
+                    "date": 1678363161379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,9 @@\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n                     }else{\n-                        \n+                        art\n                     }\n                 })\n //***********      deleteProduct(item)   *******************  \n \n"
+                },
+                {
+                    "date": 1678363170749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,9 @@\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n                     }else{\n-                        art\n+                        article.rem\n                     }\n                 })\n //***********      deleteProduct(item)   *******************  \n \n"
+                },
+                {
+                    "date": 1678363248302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,10 @@\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n                     }else{\n-                        article.rem\n+                        article.remove()\n+                        a\n                     }\n                 })\n //***********      deleteProduct(item)   *******************  \n \n"
+                },
+                {
+                    "date": 1678363253965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,9 +83,9 @@\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n                     }else{\n                         article.remove()\n-                        a\n+                        aler\n                     }\n                 })\n //***********      deleteProduct(item)   *******************  \n \n"
+                },
+                {
+                    "date": 1678363292071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,9 +83,10 @@\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n                     }else{\n                         article.remove()\n-                        aler\n+                        alert (\"Votre adresse mail n'est pas valide\")\n+\n                     }\n                 })\n //***********      deleteProduct(item)   *******************  \n \n"
+                },
+                {
+                    "date": 1678363304539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,9 +83,9 @@\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n                     }else{\n                         article.remove()\n-                        alert (\"Votre adresse mail n'est pas valide\")\n+                        alert (\"Votre panier est vide\")\n \n                     }\n                 })\n //***********      deleteProduct(item)   *******************  \n"
+                },
+                {
+                    "date": 1678363367453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,9 @@\n                     if(itemToDelete !== -1){\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n-                    }else{\n+                    }if{\n                         article.remove()\n                         alert (\"Votre panier est vide\")\n \n                     }\n"
+                },
+                {
+                    "date": 1678363487647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,9 @@\n                     if(itemToDelete !== -1){\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n-                    }if{\n+                    }if(itemToDelete !== -1){\n                         article.remove()\n                         alert (\"Votre panier est vide\")\n \n                     }\n"
+                },
+                {
+                    "date": 1678363500019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,9 @@\n                     if(itemToDelete !== -1){\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n-                    }if(itemToDelete !== -1){\n+                    }if(itemToDelete = -1){\n                         article.remove()\n                         alert (\"Votre panier est vide\")\n \n                     }\n"
+                },
+                {
+                    "date": 1678363508584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,9 @@\n                     if(itemToDelete !== -1){\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n-                    }if(itemToDelete = -1){\n+                    }if(itemToDelete =<){\n                         article.remove()\n                         alert (\"Votre panier est vide\")\n \n                     }\n"
+                },
+                {
+                    "date": 1678363547405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,9 @@\n                     if(itemToDelete !== -1){\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n-                    }if(itemToDelete =<){\n+                    }if(itemToDelete < 0){\n                         article.remove()\n                         alert (\"Votre panier est vide\")\n \n                     }\n"
+                },
+                {
+                    "date": 1678363661610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,12 @@\n                         panier[itemToDelete].quantity = this.value\n                         savePanier(panier)\n                         updateTotalPriceQuantity()\n                     }if(itemToDelete <= 0){\n-                        \n+                        panier[itemToDelete].quantity = this.value\n+                        savePanier(panier)\n+                        updateTotalPriceQuantity()\n+\n                         article.remove()\n                         alert (\"Votre panier est vide\")\n \n                     }\n"
+                },
+                {
+                    "date": 1678364351029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n               if (quantity == null || quantity <= 0 || quantity > 100 ||!Number.isInteger(quantity)) {\n                   alert(\"Vous devez sélectionner une quantité de 1 à 100. Merci\")\n                 return true\n                 }\n-            }\n+            \n                     const article = event.target.closest(\"article.cart__item\")\n                     const productId = article.dataset.id\n                     const productColor = article.dataset.color\n                     \n"
                 }
             ],
             "date": 1678274221641,

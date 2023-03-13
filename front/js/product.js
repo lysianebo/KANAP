@@ -76,6 +76,7 @@ function invalidCommand(color, quantity){
     return true
     }
 } 
+
 //Sauvegarde dans localStorage if commande valide
 function saveCommand(color, quantity){
     let isFound = false;

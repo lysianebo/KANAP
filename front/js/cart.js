@@ -71,7 +71,12 @@ async function makeArticle(product, item){
                 input.value = item.quantity
                 input.addEventListener("change",   function(event) {
                    // TODO  VERIFICATION CHAMP QUANTITY
-              //      location.reload();
+              
+                   if ( input.value == null ||input.value < 1 || input.value > 100 ) {
+                    alert("Vous devez sélectionner une quantité de 1 à 100. Merci")
+                    return true
+                }
+               
                     const article = event.target.closest("article.cart__item")
                     const productId = article.dataset.id
                     const productColor = article.dataset.color
@@ -83,7 +88,7 @@ async function makeArticle(product, item){
                         savePanier(panier)
                         updateTotalPriceQuantity()
                     }
-                })
+ })
 //***********      deleteProduct(item)   *******************  
 
         const contentDelete = document.createElement("div")
@@ -126,7 +131,7 @@ function appendtoArticle(article, array) {
 function displayTotalPrice(price){
     const totalPrice = document.querySelector("#totalPrice")
     totalPrice.textContent = price 
- }
+}
  function displayTotalQuantity(quantity){
     const totalQuantity = document.querySelector("#totalQuantity")
           totalQuantity.textContent = quantity
