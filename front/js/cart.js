@@ -190,35 +190,82 @@ function submitForm(e){
 }
 function formIsInvalid(){
     let hasError = false;
+    //let letters = /^[A-Za-z]+$/;
+    let chiffre = /^[-+]?[0-9]+$/
     const form = document.querySelector(".cart__order__form")
     const inputs = form.querySelectorAll("input")
     inputs.forEach((input) =>{
-        if(input.id ==="order") return;
+        if(input.id === "order") return;
         let errorElement =  document.getElementById(`${input.id}ErrorMsg`);
         errorElement.innerText = '';
         if (input.value === ""){
             errorElement.innerText = "Ce champ ne doit pas être vide!";
             hasError = true;
+        } 
+        if (nomPrenomIsInvalid()){
+            hasError = true
         }
-        if(input.id === "email" && input.value !== ""){
-            const email = document.querySelector("#email").value
-            const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-            if (regex.test(email) === false) {
-                document.getElementById(`${input.id}ErrorMsg`).innerText = "Ce champ doit un email!"
-                hasError = true;
-            }
+        if (emailIsInvalid()){
+            hasError = true
         }
+        
     })
-    return hasError;
+        
+        //  if(input.id ==="firstName" && input.value.match(letters)){
+        //     alert("c'est bien")
+        //     return true
+        // }else{
+        //     errorElement.innerText = "Ce champ ne peut contenir que des lettres";        // uname.focus();
+        // return false;
+        
+
+    //     if (!/^[a-zA-Z]*$/g.test(input.id ==="fistname")) {
+    //         alert("Invalid characters");
+    //         document.myForm.name.focus();
+    //         return false;
+    //     } 
+        
+    // }
+
+        // if(input.id === "email" && input.value !== ""){
+        //     const email = document.querySelector("#email").value
+        //     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        //     if (regex.test(email) === false) {
+        //         document.getElementById(`${input.id}ErrorMsg`).innerText = "Ce champ doit un email!"
+        //         hasError = true;
+        //     }
+        // }
+
+  // return hasError;
+ //  nomPrenomIsInvalid()
+  // emailIsInvalid()
+}
+        //nomPrenomIsInvalid()
+        //emailIsInvalid()
+
+
+function nomPrenomIsInvalid(){
+    const firstName = document.querySelector("#firstName").value
+    const lastName = document.querySelector("#firstName").value
+    const letters = /^[A-Za-z]+$/;
+        if (letters.test(firstName, lastName) === false) {
+            //if(input.id ==="firstName" && input.value.match(letters)){
+                //alert ("Ce champ ne peut contenir que des lettres")
+                //return true
+                document.getElementById('firstNameErrorMsg').innerText = "Ce champ ne peut contenir que des lettres"
+            hasError = true;
+            return hasError;
+            }
 }
 function emailIsInvalid(){
     const email = document.querySelector("#email").value
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    if (regex.test(email) === false) {
-        alert ("Votre adresse mail n'est pas valide")
-        return true
-    }
-    return false
+        if (regex.test(email) === false) {
+            alert ("Votre adresse mail n'est pas valide")
+            document.getElementById('email').innerText = "Ce champ ne peut contenir que des lettres"
+        hasError = true
+        }
+  //  return false
 }
 
 function makeRequestBody(){
