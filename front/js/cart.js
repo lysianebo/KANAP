@@ -1,5 +1,3 @@
-
-
 // Chargement du localStorage
 let panier = localStorage.getItem("panier") 
 if(panier) panier = JSON.parse(panier);
@@ -50,7 +48,7 @@ async function makeArticle(product, item){
                     const p = document.createElement("p")
                           p.textContent = item.color
                     const p2 = document.createElement("p")
-                          p2.textContent = (product.price) + "€" //prix en rapport avec la quantité
+                          p2.textContent = (product.price) + "€"
                           
               const settingsDiv = document.createElement("div")
                     settingsDiv.classList.add("cart__item__content__settings")
@@ -60,7 +58,7 @@ async function makeArticle(product, item){
                               quantityP.textContent ="Qté : "
  
 
-//***********  quantityInput   *******************       
+//***********  quantity Input   *******************       
 
                 const input = document.createElement("input")
                 input.type = "number"
@@ -69,14 +67,12 @@ async function makeArticle(product, item){
                 input.min ="1"
                 input.max ="100"
                 input.value = item.quantity
-                input.addEventListener("change",   function(event) {
-                   // TODO  VERIFICATION CHAMP QUANTITY
+                input.addEventListener("change", function(event) {
               
                    if ( input.value == null ||input.value < 1 || input.value > 100 ) {
                     alert("Vous devez sélectionner une quantité de 1 à 100. Merci")
-                    return true
+                    return
                 }
-               
                     const article = event.target.closest("article.cart__item")
                     const productId = article.dataset.id
                     const productColor = article.dataset.color
@@ -123,6 +119,7 @@ async function makeArticle(product, item){
        // return { number : item.quantity, price: product.price}
 }   
 //***********Fin de MISE EN PAGE DE L'ARTICLE  *******************
+
 function appendtoArticle(article, array) {
     array.forEach(item => {
     article.appendChild(item)
@@ -201,75 +198,40 @@ function formIsInvalid(){
         if (input.value === ""){
             errorElement.innerText = "Ce champ ne doit pas être vide!";
             hasError = true;
-        } 
-        if (nomPrenomIsInvalid()){
+        }
+    })
+
+        if (nomPrenomIsInvalid("lastName")){
+            hasError = true
+        }
+        if (nomPrenomIsInvalid("firstName")){
             hasError = true
         }
         if (emailIsInvalid()){
             hasError = true
         }
-        
-    })
-        
-        //  if(input.id ==="firstName" && input.value.match(letters)){
-        //     alert("c'est bien")
-        //     return true
-        // }else{
-        //     errorElement.innerText = "Ce champ ne peut contenir que des lettres";        // uname.focus();
-        // return false;
-        
-
-    //     if (!/^[a-zA-Z]*$/g.test(input.id ==="fistname")) {
-    //         alert("Invalid characters");
-    //         document.myForm.name.focus();
-    //         return false;
-    //     } 
-        
-    // }
-
-        // if(input.id === "email" && input.value !== ""){
-        //     const email = document.querySelector("#email").value
-        //     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-        //     if (regex.test(email) === false) {
-        //         document.getElementById(`${input.id}ErrorMsg`).innerText = "Ce champ doit un email!"
-        //         hasError = true;
-        //     }
-        // }
-
-  // return hasError;
- //  nomPrenomIsInvalid()
-  // emailIsInvalid()
+        return hasError;
 }
-        //nomPrenomIsInvalid()
-        //emailIsInvalid()
-
-
-function nomPrenomIsInvalid(){
-    const firstName = document.querySelector("#firstName").value
-    const lastName = document.querySelector("#firstName").value
+function nomPrenomIsInvalid(champ){
+    const item = document.getElementById(champ).value
     const letters = /^[A-Za-z]+$/;
-        if (letters.test(firstName, lastName) === false) {
-            //if(input.id ==="firstName" && input.value.match(letters)){
-                //alert ("Ce champ ne peut contenir que des lettres")
-                //return true
-                document.getElementById('firstNameErrorMsg').innerText = "Ce champ ne peut contenir que des lettres"
-            hasError = true;
-            return hasError;
-            }
+    if (letters.test(item) === false && item !== "") {
+        document.getElementById(champ+'ErrorMsg').innerText = "Ce champ ne peut contenir que des lettres"
+        return true
+    }
+    return false;
 }
 function emailIsInvalid(){
-    const email = document.querySelector("#email").value
+    const email = document.getElementById('email').value
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-        if (regex.test(email) === false) {
-            alert ("Votre adresse mail n'est pas valide")
-            document.getElementById('email').innerText = "Ce champ ne peut contenir que des lettres"
-        hasError = true
-        }
-  //  return false
+    if (regex.test(email) === false && email !== "" ) {
+        document.getElementById('emailErrorMsg').innerText = "Ce champ doit être un email valide"
+        return true
+    }
+    return false
 }
 
 function makeRequestBody(){
-    //const form = document.querySelector("cart__order__form")
     inputFirstame = document.getElementById("firstName").value;
     inputLastname = document.getElementById("lastName").value;
     inputAddress = document.getElementById("address").value;
@@ -286,8 +248,8 @@ function makeRequestBody(){
         },
         products: getIdsFromCache()
     }
-
 }
+
 function getIdsFromCache(){
         const ids = []
         for (let item of panier){
